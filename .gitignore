@@ -1,0 +1,6 @@
+.DS_Store
+config.xml
+*.log
+dist/*latest-*
+node_modules/
+vendor/
