@@ -71,9 +71,9 @@ class BNDuplicateCartRule extends Module
                 'input' => array(
                     array(
                         'type' => 'select',
-                        'label' => $this->l('Original'),
                         'name' => $this->prefix . '_ORIGINAL_CART_RULE',
-                        'desc' => $this->l('Cart rule to be duplicated'),
+                        'label' => $this->l('Original Rule'),
+                        'desc' => $this->l('Cart rule to be duplicated.'),
                         'options' => array(
                             'query' => $this->getCartRules(),
                             'id' => 'id_cart_rule',
@@ -83,9 +83,9 @@ class BNDuplicateCartRule extends Module
                     array(
                         'col' => 3,
                         'type' => 'text',
-                        'label' => $this->l('# of Duplicates'),
-                        'desc' => $this->l('Number of Duplicates'),
                         'name' => $this->prefix . '_NUM_DUPLICATES',
+                        'label' => $this->l('Number of Duplicates'),
+                        'desc' => $this->l('How many copies are created.'),
                     ),
                 ),
                 'submit' => array(
