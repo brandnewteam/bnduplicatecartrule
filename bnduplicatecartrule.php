@@ -52,7 +52,10 @@ class BNDuplicateCartRule extends Module
             . '&configure=' . $this->name . '&tab_module=' . $this->tab . '&module_name=' . $this->name;
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->tpl_vars = array(
-            'fields_value' => [],
+            'fields_value' => [
+                $this->prefix . '_ORIGINAL_CART_RULE' => 0,
+                $this->prefix . '_NUM_DUPLICATES' => 0,
+            ],
             'languages' => $this->context->controller->getLanguages(),
             'id_language' => $this->context->language->id,
         );
@@ -112,6 +115,11 @@ class BNDuplicateCartRule extends Module
         foreach ($cart_rules as &$cr) {
             $cr['name'] = $cr['name'] . ' (' . $cr['id_cart_rule'] . ')';
         }
+
+        array_unshift($cart_rules, array(
+            'id_cart_rule' => 0,
+            'name' => '----'
+        ));
 
         return $cart_rules;
     }
