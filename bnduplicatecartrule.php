@@ -34,6 +34,11 @@ class BNDuplicateCartRule extends Module
             $output .= $this->postProcess();
         }
 
+        $this->context->controller->addJquery();
+        $this->context->controller->addCSS('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css');
+        $this->context->controller->addJS('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js');
+        $this->context->controller->addJS($this->_path . 'views/js/bnduplicatecartrule.back.js');
+
         return $output . $this->renderForm();
     }
 
@@ -74,6 +79,8 @@ class BNDuplicateCartRule extends Module
                 'input' => array(
                     array(
                         'type' => 'select',
+                        'class' => 'fixed-width-xxl',
+                        'form_group_class' => 'select2',
                         'name' => $this->prefix . '_ORIGINAL_CART_RULE',
                         'label' => $this->l('Original Rule'),
                         'desc' => $this->l('Cart rule to be duplicated.'),
