@@ -12,7 +12,7 @@ class BNDuplicateCartRule extends Module
     {
         $this->name = 'bnduplicatecartrule';
         $this->tab = 'administration';
-        $this->version = '0.0.2';
+        $this->version = '0.0.3';
         $this->author = 'Brand New srl';
         $this->need_instance = 0;
         $this->bootstrap = true;
